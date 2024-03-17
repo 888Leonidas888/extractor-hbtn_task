@@ -22,5 +22,6 @@ Sin embargo, es posible que haya pequeñas diferencias de comportamiento o carac
 - Haz clic en el botón "Cargar descomprimida".
 - Selecciona la carpeta que contiene tu extensión y haz clic en "Seleccionar carpeta".
 
-!NOTE
+> [!NOTE]
+
 Los pasos para instalar en otros navegadores, es casi el mismo.
