@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Extractor de Elementos",
-  "version": "1.5",
+  "version": "1.6",
   "description": "Seleccionar un elemento.",
   "permissions": ["activeTab", "scripting", "storage"],
   "action": {

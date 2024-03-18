@@ -4,6 +4,7 @@ chrome.action.onClicked.addListener((tab) => {
     function: () => {
       let title = document.querySelector("h1").innerText;
       title = title.replace(/ /g, "_");
+      title = title.replace(/-/g, "_");
       title = title.toLowerCase();
       let nameFile = title + ".html";
       const collectionPanelDefault = document.querySelector(".contains-images");
@@ -17,7 +18,7 @@ chrome.action.onClicked.addListener((tab) => {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${title}</title>
-            <link rel="stylesheet" href="main.css" />
+            <link rel="stylesheet" href="../css/main.css" />
           </head>
           <body>
             <div class="container-main">
