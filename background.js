@@ -6,15 +6,32 @@ chrome.action.onClicked.addListener((tab) => {
       title = title.replace(/ /g, "_");
       title = title.toLowerCase();
       let nameFile = title + ".html";
-      const h1 = document.querySelector(".contains-images");
-      if (h1) {
-        const contenido = h1.innerHTML;
-        chrome.storage.local.set({ contenido: contenido }, () => {
-          console.log("Contenido guardado en almacenamiento local:", contenido);
+      const collectionPanelDefault = document.querySelector(".contains-images");
+      if (collectionPanelDefault) {
+        const content = collectionPanelDefault.innerHTML;
+
+        let newHTML = `
+        <!DOCTYPE html>
+        <html lang="es">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${title}</title>
+            <link rel="stylesheet" href="main.css" />
+          </head>
+          <body>
+            <div class="container-main">
+              ${content}
+            </div>
+          </body>
+        </html>
+      `;
+        chrome.storage.local.set({ content: newHTML }, () => {
+          console.log("Contenido guardado en almacenamiento local:", newHTML);
         });
 
-        // Crear un objeto Blob con el contenido
-        const blob = new Blob([contenido], { type: "text/html" });
+        // Crear un objeto Blob con el newHTML
+        const blob = new Blob([newHTML], { type: "text/html" });
 
         // Crear un objeto URL para el Blob
         const url = URL.createObjectURL(blob);
